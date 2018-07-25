@@ -10,4 +10,6 @@ public class ApiConstants {
 
     public static final String SECURITY_PATH = "/api/safe/security";
 
+    public static final String AUTHORIZATION = "Authorization";
+
 }

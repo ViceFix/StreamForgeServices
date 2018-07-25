@@ -23,7 +23,7 @@ public class WebUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private long userId;
+    private Long userId;
 
     @Column(name = "username")
     private String username;
@@ -31,11 +31,17 @@ public class WebUser {
     @Column(name = "password")
     private String password;
 
-    public long getUserId() {
+    @Column(name = "external_id")
+    private Long externalId;
+
+    @Column(name = "display_name")
+    private String displayName;
+
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -53,5 +59,21 @@ public class WebUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Long getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(Long externalId) {
+        this.externalId = externalId;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 }

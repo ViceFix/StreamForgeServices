@@ -17,7 +17,6 @@ import java.io.IOException;
 
 public class TokenFilter extends OncePerRequestFilter {
 
-    @Autowired
     private AuthorizationService authorizationService;
 
     @Override
@@ -26,7 +25,7 @@ public class TokenFilter extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain filterChain) throws ServletException, IOException {
 
-        if (authorizationService == null){
+        if (authorizationService == null) {
             ServletContext servletContext = request.getServletContext();
             WebApplicationContext webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
             authorizationService = webApplicationContext.getBean(AuthorizationService.class);
