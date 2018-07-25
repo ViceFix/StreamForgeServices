@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 public class TwitchUserDataService {
 
     public UserDataNativeDto getUserDataByToken(String accessToken) {
-
         TwitchCallBuilder<Object, UserDataNativeDto> callBuilder = TwitchCallBuilder.instance(UserDataNativeDto.class);
         return callBuilder
                 .setMethod(HttpMethod.GET)

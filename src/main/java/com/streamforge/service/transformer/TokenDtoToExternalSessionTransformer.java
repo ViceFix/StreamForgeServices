@@ -12,8 +12,6 @@ import java.util.Date;
 @Service
 public class TokenDtoToExternalSessionTransformer extends AbstractTransformer<TwitchTokenDto, ExternalSession> {
 
-
-
     @Override
     protected ExternalSession transformInternal(TwitchTokenDto from) {
         Date expirationDate = dateService.getSumDateFromNow(from.getExpiration(), Calendar.SECOND);

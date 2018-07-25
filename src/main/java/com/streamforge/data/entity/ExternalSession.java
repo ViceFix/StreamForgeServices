@@ -29,9 +29,6 @@ public class ExternalSession {
     @Column(name = "user_id")
     private Long userId;
 
-//    @OneToOne(fetch = FetchType.LAZY)
-//    private WebUser user;
-
     @Column(name = "access_token")
     private String accessToken;
 
@@ -59,14 +56,6 @@ public class ExternalSession {
     public void setUserId(long userId) {
         this.userId = userId;
     }
-
-//    public WebUser getUser() {
-//        return user;
-//    }
-
-//    public void setUser(WebUser user) {
-//        this.user = user;
-//    }
 
     public String getAccessToken() {
         return accessToken;
@@ -153,16 +142,4 @@ public class ExternalSession {
         }
     }
 
-    @Override
-    public String toString() {
-        return "ExternalSession{" +
-                "externalSessionId=" + externalSessionId +
-                ", userId=" + userId +
-//                ", user=" + user +
-                ", accessToken='" + accessToken + '\'' +
-                ", refreshToken='" + refreshToken + '\'' +
-                ", expirationDate=" + expirationDate +
-                ", serviceToken='" + serviceToken + '\'' +
-                '}';
-    }
 }

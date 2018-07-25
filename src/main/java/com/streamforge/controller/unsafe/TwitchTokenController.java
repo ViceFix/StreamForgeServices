@@ -2,6 +2,7 @@ package com.streamforge.controller.unsafe;
 
 import com.streamforge.controller.common.ApiConstants;
 import com.streamforge.data.dto.TwitchTokenDto;
+import com.streamforge.service.common.Constants;
 import com.streamforge.service.twitch.TwitchTokenService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,6 @@ import java.util.Collections;
 public class TwitchTokenController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TwitchTokenController.class);
-    private static final String TOKEN_TYPE = "Custom ";
 
     private final TwitchTokenService twitchTokenService;
 
@@ -31,7 +31,7 @@ public class TwitchTokenController {
 
     @PostMapping("externaltoken")
     public ResponseEntity<?> saveTwitchToken(@RequestBody TwitchTokenDto tokenDto) {
-        String token = TOKEN_TYPE + twitchTokenService.saveOrUpdateTwitchSession(tokenDto);
+        String token = Constants.TOKEN_CUSTOM  + Constants.WHITESPACE + twitchTokenService.saveOrUpdateTwitchSession(tokenDto);
 
         HttpHeaders headers = new HttpHeaders();
         headers.put(ApiConstants.AUTHORIZATION, Collections.singletonList(token));
