@@ -14,15 +14,15 @@ public class EncryptService {
     private static final Logger LOGGER = LoggerFactory.getLogger(EncryptService.class);
 
     public String encrypt(String toEncrypt) {
+        String hash = "";
         try {
             MessageDigest hasher = MessageDigest.getInstance("SHA-256");
             byte[] digest = hasher.digest(toEncrypt.getBytes(StandardCharsets.UTF_8));
-            return bytesToHex(digest);
-
+            hash = bytesToHex(digest);
         } catch (NoSuchAlgorithmException e) {
             LOGGER.error("Unable to get SHA256 algorithm", e);
         }
-        return "";
+        return hash;
     }
 
     private String bytesToHex(byte[] hash) {
